@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FRFoodRecipes.App">
+    <Application.Resources>
+        <OnPlatform x:Key="MaterialFontFamilySOLID" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Font Awesome 5 Pro" />
+            <On Platform="Android" Value="fa-solid-900.ttf#Font Awesome 5 Pro" />
+        </OnPlatform>
+        <OnPlatform x:Key="MaterialFontFamilyREGULAR" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Font Awesome 5 Pro" />
+            <On Platform="Android" Value="fa-regular-400.ttf#Font Awesome 5 Pro" />
+        </OnPlatform>
+        <OnPlatform x:Key="MaterialFontFamilyLIGHT" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Font Awesome 5 Pro" />
+            <On Platform="Android" Value="fa-light-300.ttf#Font Awesome 5 Pro" />
+        </OnPlatform>
+        <OnPlatform x:Key="MaterialFontFamilyDUOTONE" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Font Awesome 5 Pro" />
+            <On Platform="Android" Value="fa-duotone-900.ttf#Font Awesome 5 Pro" />
+        </OnPlatform>
+        <OnPlatform x:Key="MaterialFontFamilyBRANDS" x:TypeArguments="x:String">
+            <On Platform="iOS" Value="Font Awesome 5 Pro" />
+            <On Platform="Android" Value="fa-brands-400.ttf#Font Awesome 5 Pro" />
+        </OnPlatform>
+    </Application.Resources>
+</Application>

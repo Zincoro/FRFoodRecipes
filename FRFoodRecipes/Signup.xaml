@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FRFoodRecipes.Signup">
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" BackgroundColor="#DADDD8">
+
+            <StackLayout>
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for Username Box-->
+                    <Entry x:Name="txtUsername" Placeholder="Username"/>
+                </StackLayout>
+
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for FirstName Box-->
+                    <Entry x:Name="txtFirstName" Placeholder="First Name"/>
+                </StackLayout>
+
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for Lastname Box-->
+                    <Entry x:Name="txtLastName" Placeholder="Last Name"/>
+                </StackLayout>
+
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for Email Box-->
+                    <Entry x:Name="txtEmail" Placeholder="Email"/>
+                </StackLayout>
+
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for Password Box-->
+                    <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"/>
+                </StackLayout>
+
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for Confirm Password Box-->
+                    <Entry x:Name="txtPasswordConfirm" Placeholder="Confirm Password" IsPassword="True"/>
+                </StackLayout>
+
+                <Button x:Name="btnSignup" Text="Sign up" TextColor="White" BackgroundColor="Green" Margin="75,40,75,0" CornerRadius="25" />
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

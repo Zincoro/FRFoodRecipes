@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="FRFoodRecipes.LoginPage">
+
+    <ContentPage.Content>
+        <Grid RowSpacing="0" BackgroundColor="#DADDD8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="4.5*"/>
+                <RowDefinition Height="5.5*"/>
+            </Grid.RowDefinitions>
+
+            <StackLayout Padding="0,95,0,0">
+                <!--<Image Source="mainlogo.png"/>-->
+            </StackLayout>
+
+            <StackLayout Grid.Row="1">
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for Username Box-->
+                    <Entry x:Name="txtUsername" Placeholder="Username"/>
+                </StackLayout>
+
+                <StackLayout Padding="75,20,75,0">
+                    <!-- Stack Layout for Password Box-->
+                    <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"/>
+                </StackLayout>
+
+                <Button x:Name="btnLogin" Text="Login" TextColor="White" BackgroundColor="Green" Margin="75,40,75,0" CornerRadius="25" Clicked="btnLogin_Clicked"/>
+
+                <Label Text="Dont have an account?" Margin="140,20,75,0"/>
+
+                <Button x:Name="btnSignup" Text="Sign up" TextColor="White" BackgroundColor="#1476D2" Margin="75,0,75,0" CornerRadius="25" Clicked="btnSignup_Clicked"/>
+
+            </StackLayout>
+        </Grid>
+    </ContentPage.Content>
+
+</ContentPage>

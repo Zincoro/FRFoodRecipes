@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage
+            xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup" 
+            xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+                 xmlns:local="clr-namespace:FRFoodRecipes.Maintenance"
+             x:Class="FRFoodRecipes.FilterPopup">
+
+    <StackLayout BackgroundColor="White" HorizontalOptions="CenterAndExpand" VerticalOptions="End" Orientation="Vertical" Padding="15,10,15,15">
+        <StackLayout Orientation="Horizontal" Grid.ColumnSpan="2">
+            <StackLayout HorizontalOptions="Start" Orientation="Horizontal">
+                <Label x:Name="lblCalorie" Text="Calories" Margin="3,10,3,0" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry x:Name="txtCalorieFrom" Placeholder="From" Margin="2,0,2,0"/>
+                <Entry x:Name="txtCalorieTo" Placeholder="To" Margin="2,0,0,0"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="EndAndExpand" Orientation="Horizontal">
+                <Label x:Name="lblIngredients" Text="Ingredients" Margin="3,10,3,0" FontSize="Medium" FontAttributes="Bold"/>
+                <Entry x:Name="txtIngredsUpto" Placeholder="Up to" Margin="2,0,2,0"/>
+            </StackLayout>
+        </StackLayout>
+        <Label Text="Diet" FontSize="Medium" FontAttributes="Bold" Margin="3,0,0,0" Grid.ColumnSpan="2"/>
+        <StackLayout Orientation="Vertical">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                    <CheckBox x:Name="chkBalanced" CheckedChanged="chkBalanced_CheckedChanged"/>
+                    <Label Text="Balanced" Margin="0,5,0,0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Row="1">
+                    <CheckBox x:Name="chkHighFiber" CheckedChanged="chkHighFiber_CheckedChanged"/>
+                    <Label Text="High-Fiber" Margin="0,5,0,0"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                    <CheckBox x:Name="chkHighProtein" CheckedChanged="chkHighProtein_CheckedChanged"/>
+                    <Label Text="High-Protein" Margin="0,5,0,0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                    <CheckBox x:Name="chkLowCarb" CheckedChanged="chkLowCarb_CheckedChanged"/>
+                    <Label Text="Low-Carb" Margin="0,5,0,0"/>
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                    <CheckBox x:Name="chkLowFat" CheckedChanged="chkLowFat_CheckedChanged"/>
+                    <Label Text="Low-Fat" Margin="0,5,0,0"/>
+                </StackLayout>
+                <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+                    <CheckBox x:Name="chkLowSodium" CheckedChanged="chkLowSodium_CheckedChanged"/>
+                    <Label Text="Low-Sodium" Margin="0,5,0,0"/>
+                </StackLayout>
+            </Grid>
+
+            <Label Text="Health" FontSize="Medium" FontAttributes="Bold" Margin="3,10,0,0" Grid.ColumnSpan="2"/>
+            <StackLayout Orientation="Vertical">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+
+                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="0">
+                        <CheckBox x:Name="chkVegan"/>
+                        <Label Text="Vegan" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="1">
+                        <CheckBox x:Name="chkVegetarian"/>
+                        <Label Text="Vegetarian" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2">
+                        <CheckBox x:Name="chkAlcoholFree"/>
+                        <Label Text="Alcohol-Free" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="3" >
+                        <CheckBox x:Name="chkDairy"/>
+                        <Label Text="Dairy" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="4">
+                        <CheckBox x:Name="chkEggs"/>
+                        <Label Text="Eggs" Margin="0,5,0,0"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
+                        <CheckBox x:Name="chkPaleo"/>
+                        <Label Text="Paleo" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
+                        <CheckBox x:Name="chkLowSugar"/>
+                        <Label Text="Low-Sugar" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
+                        <CheckBox x:Name="chkKeto"/>
+                        <Label Text="Keto" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
+                        <CheckBox x:Name="chkWheat"/>
+                        <Label Text="Wheat" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
+                        <CheckBox x:Name="chkFish"/>
+                        <Label Text="Fish" Margin="0,5,0,0"/>
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
+                        <CheckBox x:Name="chkGluten"/>
+                        <Label Text="Gluten" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
+                        <CheckBox x:Name="chkSoy"/>
+                        <Label Text="Soy" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
+                        <CheckBox x:Name="chkShellfish"/>
+                        <Label Text="Shellfish" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="2">
+                        <CheckBox x:Name="chkTreeNuts"/>
+                        <Label Text="Tree Nuts" Margin="0,5,0,0"/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="2">
+                        <CheckBox x:Name="chkPeanuts"/>
+                        <Label Text="Peanuts" Margin="0,5,0,0"/>
+                    </StackLayout>
+                </Grid>
+
+                <StackLayout Orientation="Horizontal" Margin="0,10,0,0" Grid.ColumnSpan="2">
+                    <Button x:Name="btnClearFilters" BackgroundColor="White" FontFamily="{StaticResource MaterialFontFamilyREGULAR}" Text="{x:Static local:IconFont.TimesCircle}" FontSize="18" HorizontalOptions="Start" VerticalOptions="Center" Clicked="btnClearFilters_Clicked"/>
+                    <Button x:Name="btnDone" Text="DONE" BackgroundColor="Green" TextColor="White" HorizontalOptions="EndAndExpand" VerticalOptions="Center" Clicked="btnDone_Clicked"/>
+                    <Label x:Name="lblTestReadData"/>
+                </StackLayout>
+            </StackLayout>
+        </StackLayout>
+    </StackLayout>
+</pages:PopupPage>

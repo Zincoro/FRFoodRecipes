@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:ff="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             xmlns:local="clr-namespace:FRFoodRecipes.Maintenance"
+             xmlns:ffImageTransformation="clr-namespace:FFImageLoading.Transformations;assembly=FFImageLoading.Transformations"
+             x:Class="FRFoodRecipes.HomePage"
+             Title="Find Recipes">
+
+
+    <StackLayout Orientation="Vertical" BackgroundColor="White">
+        <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="10">
+            <SearchBar x:Name="searchRecipe" Placeholder="Search food..." PlaceholderColor="Gray" SearchButtonPressed="searchRecipe_SearchButtonPressed"/>
+            <Button x:Name="btnFilter" FontFamily="{StaticResource MaterialFontFamilyREGULAR}" Text="{x:Static local:IconFont.Filter}" FontSize="22" BackgroundColor="White" Pressed="btnFilter_Pressed"/>
+        </StackLayout>
+        <StackLayout>
+            <ListView x:Name="FoodResults" ItemsSource="{Binding apiModel}" HasUnevenRows="True" SeparatorVisibility="None" ItemTapped="FoodResults_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Grid Padding="5" ColumnSpacing="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <ff:CachedImage x:Name="foodImage" HeightRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="70" Source="{Binding imageUri}">
+                                    <ff:CachedImage.Transformations>
+                                        <ffImageTransformation:CircleTransformation />
+                                    </ff:CachedImage.Transformations>
+                                </ff:CachedImage>
+                                <ActivityIndicator BindingContext="{x:Reference foodImage}" IsRunning="{Binding IsLoading}"/>
+                                <StackLayout Grid.Column="1" Orientation="Vertical">
+                                    <Label Text="{Binding foodName}" VerticalOptions="End" FontAttributes="Bold"/>
+                                    <Label Text="{Binding totalCalories}" VerticalOptions="Start"/>
+                                </StackLayout>
+
+                            </Grid>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>
