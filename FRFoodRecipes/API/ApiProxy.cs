@@ -13,27 +13,57 @@ namespace FRFoodRecipes.API
     {
         public async Task<UserTable> GetUser(string userName, string pwrd)
         {
-            //var http = new HttpClient
-            //{
-            //    BaseAddress = new Uri("https://foodapi27036778.azurewebsites.net/")
-            //};
-
-            //HttpResponseMessage response = await http.GetAsync($"user/{userName}&{pwrd}");
-            //if (response.IsSuccessStatusCode)
-            //{
-            //    var result = await response.Content.ReadAsStringAsync();
-            //    var serializer = new DataContractJsonSerializer(typeof(UserTable));
-
-            //    var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
-            //    var data = (UserTable)serializer.ReadObject(ms);
-            //    return data;
-            //}
-            //else return new UserTable { Fname = response.ReasonPhrase, Lname = "" };
-
             var http = new HttpClient();
             var response = await http.GetAsync($"https://foodapi27036778.azurewebsites.net/user/{userName}&{pwrd}");
             var data = await response.Content.ReadAsAsync<UserTable>();
             return data;
         }
+
+        public async Task<UserTable> NewUser(UserTable user)
+        {
+            var http = new HttpClient();
+            var response = await http.PostAsJsonAsync($"https://foodapi27036778.azurewebsites.net/user", user);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsAsync<UserTable>();
+                return data;
+            }
+            else
+                return null;
+        }
+
+        public async Task<List<SavedFoodTable>> GetSavedFood(int uid)
+        {
+            var http = new HttpClient();
+            var response = await http.GetAsync($"https://foodapi27036778.azurewebsites.net/SavedFood/{uid}");
+            var data = await response.Content.ReadAsAsync<List<SavedFoodTable>>();
+            return data;
+        }
+
+        public async Task<SavedFoodTable> PostSavedFood(SavedFoodTable savedFood)
+        {
+            var http = new HttpClient();
+            var response = await http.PostAsJsonAsync($"https://foodapi27036778.azurewebsites.net/SavedFood", savedFood);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsAsync<SavedFoodTable>();
+                return data;
+            }
+            else
+                return null;
+        }
+
+        public async Task<bool> DeleteSavedFood(int foodId)
+        {
+            var http = new HttpClient();
+            var response = await http.DeleteAsync($"https://foodapi27036778.azurewebsites.net/SavedFood/{foodId}");
+            if (response.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+                return false;
+        }
+
     }
 }

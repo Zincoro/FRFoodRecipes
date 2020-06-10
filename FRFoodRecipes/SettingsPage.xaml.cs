@@ -27,6 +27,7 @@ namespace FRFoodRecipes
                 //{
                 //    Navigation.RemovePage(page);
                 //}
+                App.Current.MainPage = new NavigationPage(new LoginPage());
             }
             else
                 return;

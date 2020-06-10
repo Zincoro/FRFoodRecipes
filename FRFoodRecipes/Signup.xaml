@@ -40,7 +40,7 @@
                     <Entry x:Name="txtPasswordConfirm" Placeholder="Confirm Password" IsPassword="True"/>
                 </StackLayout>
 
-                <Button x:Name="btnSignup" Text="Sign up" TextColor="White" BackgroundColor="Green" Margin="75,40,75,0" CornerRadius="25" />
+                <Button x:Name="btnSignup" Text="Sign up" TextColor="White" BackgroundColor="Green" Margin="75,40,75,0" CornerRadius="25" Pressed="btnSignup_Pressed"/>
 
             </StackLayout>
         </Grid>

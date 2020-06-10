@@ -1,6 +1,9 @@
-﻿using FRFoodRecipes.Maintenance;
+﻿using FRFoodRecipes.API.Models;
+using FRFoodRecipes.Maintenance;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Net.Http;
 using System.Runtime.Serialization;
@@ -37,6 +40,50 @@ namespace FRFoodRecipes.API
             var data = (RootObject)serializer.ReadObject(ms);
 
             return data;
+        }
+
+        public async static Task<List<SingleRootObject>> GetRecipeFromUri()
+        {
+            string appID = "fdb4202d"; //App ID
+            string appKey = "45e0fc9234e74461ff88774111579eae"; //App Key
+
+            var http = new HttpClient();
+            //var response = await http.GetAsync($"https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_d6452a86e2edb13bbeb305904fd2a7f1&app_id=fdb4202d&app_key=45e0fc9234e74461ff88774111579eae");
+
+            //var data = await response.Content.ReadAsAsync<SingleRootObject>();
+
+            var uri = new Uri("https://api.edamam.com/search?r=http://www.edamam.com/ontologies/edamam.owl%23recipe_d6452a86e2edb13bbeb305904fd2a7f1&app_id=fdb4202d&app_key=45e0fc9234e74461ff88774111579eae");
+
+            //var response = await http.GetAsync(uri);
+            //if (response.IsSuccessStatusCode)
+            //{
+            //    var content = await response.Content.ReadAsStringAsync();
+            //    var items = JsonConvert.DeserializeObject<SingleRootObject>(content);
+            //    return items;
+            //}
+
+            //return null;
+
+            HttpResponseMessage response = await http.GetAsync(uri);
+            var jsonString = await response.Content.ReadAsStringAsync();
+            var objData = JsonConvert.DeserializeObject<List<SingleRootObject>>(jsonString);
+
+            return objData;
+
+            //var result = await response.Content.ReadAsStringAsync();
+            //var serializer = new DataContractJsonSerializer(typeof(SingleRootObject));
+
+            //var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
+            //var data = (SingleRootObject)serializer.ReadObject(ms);
+
+            //return data;
+
+            //var serializer = new DataContractJsonSerializer(typeof(APIModel));
+
+            //var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
+            //var data = (APIModel)serializer.ReadObject(ms);
+
+            //return data;
         }
 
         [DataContract]

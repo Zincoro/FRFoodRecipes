@@ -44,7 +44,8 @@ namespace FRFoodRecipes
         private async void FoodResults_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var recDets = e.Item as APIModel;
-            await Navigation.PushAsync(new RecipeDetail(recDets.uri, recDets.foodName, recDets.imageUri, recDets.source, recDets.sourceUrl, recDets.shareAs, recDets.yield, recDets.dietLabels, recDets.healthLabels, recDets.cautions, recDets.ingredientLines, recDets.ingredients, recDets.calories, recDets.totalWeight, recDets.totalTime, recDets.totalNutrients, recDets.totalDaily, recDets.digest));
+            //await Navigation.PushAsync(new RecipeDetail(recDets.uri, recDets.foodName, recDets.imageUri, recDets.source, recDets.sourceUrl, recDets.shareAs, recDets.yield, recDets.dietLabels, recDets.healthLabels, recDets.cautions, recDets.ingredientLines, recDets.ingredients, recDets.calories, recDets.totalWeight, recDets.totalTime, recDets.totalNutrients, recDets.totalDaily, recDets.digest));
+            await Navigation.PushAsync(new RecipeDetail(recDets));
         }
     }
 }

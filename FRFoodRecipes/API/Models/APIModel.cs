@@ -18,12 +18,12 @@ namespace FRFoodRecipes.API.Models
         public List<string> healthLabels { get; set; }
         public List<string> cautions { get; set; }
         public List<string> ingredientLines { get; set; }
-        public List<Ingredient> ingredients { get; set; }
+        public List<RecipesAPI.Ingredient> ingredients { get; set; }
         public double calories { get; set; }
         public double totalWeight { get; set; }
         public int totalTime { get; set; }
-        public TotalNutrients totalNutrients { get; set; }
-        public TotalDaily totalDaily { get; set; }
-        public List<Digest> digest { get; set; }
+        public RecipesAPI.TotalNutrients totalNutrients { get; set; }
+        public RecipesAPI.TotalDaily totalDaily { get; set; }
+        public List<RecipesAPI.Digest> digest { get; set; }
     }
 }

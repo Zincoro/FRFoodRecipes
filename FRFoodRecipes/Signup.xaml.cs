@@ -1,4 +1,6 @@
-﻿using System;
+﻿using FRFoodRecipes.API;
+using FRFoodRecipes.API.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +17,37 @@ namespace FRFoodRecipes
         public Signup()
         {
             InitializeComponent();
+        }
+
+        private async void btnSignup_Pressed(object sender, EventArgs e)
+        {
+            if (txtPassword.Text == txtPasswordConfirm.Text)
+            {
+                UserTable newuser = new UserTable();
+                newuser.Username = txtUsername.Text;
+                newuser.Fname = txtFirstName.Text;
+                newuser.Lname = txtLastName.Text;
+                newuser.Email = txtEmail.Text;
+                newuser.Pword = txtPassword.Text;
+
+                ApiProxy apiProxy = new ApiProxy();
+
+                var user = await apiProxy.NewUser(newuser);
+
+
+                if (user == null)
+                {
+                    await DisplayAlert("Error", "Account cannot be created", "Try Again");
+                }
+                else
+                {
+                    await Navigation.PopModalAsync();
+                }
+            }
+            else
+            {
+                await DisplayAlert("Error", "Passwords dont match", "Try Again");
+            }
         }
     }
 }

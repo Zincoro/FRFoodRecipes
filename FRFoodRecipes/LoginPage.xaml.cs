@@ -1,4 +1,5 @@
 ﻿using FRFoodRecipes.API;
+using FRFoodRecipes.API.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,8 @@ namespace FRFoodRecipes
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class LoginPage : ContentPage
     {
+        public static UserTable userInfo;
+
         public LoginPage()
         {
             InitializeComponent();
@@ -26,7 +29,12 @@ namespace FRFoodRecipes
 
             if (user != null)
             {
-                await Navigation.PopModalAsync();
+                userInfo = user;
+
+                //await Navigation.PopModalAsync();
+                var page = Navigation.NavigationStack.LastOrDefault();
+                await Navigation.PushAsync(new MainPage());
+                Navigation.RemovePage(page);
             }
             else
             {

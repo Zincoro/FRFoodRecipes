@@ -12,6 +12,8 @@ namespace FRFoodRecipes.API
         //public APIModel apiModel = new APIModel();
         public ObservableCollection<APIModel> apiModel = new ObservableCollection<APIModel>();
 
+        public ObservableCollection<List<SingleRootObject>> tempmodel = new ObservableCollection< List < SingleRootObject >> ();
+
         public ObservableCollection<APIModel> GetRecipeResults(RootObject foodDatabase)
         {
             apiModel.Clear(); //Clears the APIModel everytime Controller is called
@@ -22,5 +24,15 @@ namespace FRFoodRecipes.API
 
             return apiModel; //Gets Name and other data, then returns.
         }
+
+        public ObservableCollection<List<SingleRootObject>> GetSingleRecipeByURI(List<SingleRootObject> foodDatabase)
+        {
+            tempmodel.Clear(); //Clears the APIModel everytime Controller is called
+
+            tempmodel.Add(foodDatabase);
+
+            return tempmodel; //Gets Name and other data, then returns.
+        }
+
     }
 }

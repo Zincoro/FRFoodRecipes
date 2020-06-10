@@ -21,7 +21,7 @@ namespace FRFoodRecipes
         public MainPage()
         {
             //If user isn't already logged in, push LognPage on top of NavigationPage
-            Navigation.PushModalAsync(new LoginPage());
+            //Navigation.PushModalAsync(new LoginPage());
             //else stay on home page
 
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);

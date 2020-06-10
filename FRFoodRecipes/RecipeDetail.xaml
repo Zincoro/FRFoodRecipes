@@ -7,10 +7,15 @@
             mc:Ignorable="d"
              x:Class="FRFoodRecipes.RecipeDetail"
              Title="Food Details">
+    <!--<TabbedPage.ToolbarItems>
+        <ToolbarItem Name="RemoveFood" Order="Primary" IconImageSource="heartDark.png" Priority="0" />
+        <ToolbarItem Name="SaveFood" Order="Primary" IconImageSource="emptyheartDark.png" Priority="0"/>
+    </TabbedPage.ToolbarItems>-->
 
     <ContentPage Title="OVERVIEW" BackgroundImageSource="" BackgroundColor="#ededed">
         <!--Recipe Start Page-->
         <ContentPage.Content>
+
             <ScrollView>
                 <Grid>
                     <Grid.RowDefinitions>
