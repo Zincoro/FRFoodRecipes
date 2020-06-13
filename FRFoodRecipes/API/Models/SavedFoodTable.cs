@@ -8,6 +8,9 @@ namespace FRFoodRecipes.API.Models
     {
         public int SavedFoodId { get; set; }
         public string Uri { get; set; }
+        public string foodName { get; set; }
+        public double calories { get; set; }
+        public string imageUri { get; set; }
         public int Uid { get; set; }
     }
 }

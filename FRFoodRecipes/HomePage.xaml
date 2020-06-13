@@ -17,6 +17,7 @@
             <Button x:Name="btnFilter" FontFamily="{StaticResource MaterialFontFamilyREGULAR}" Text="{x:Static local:IconFont.Filter}" FontSize="22" BackgroundColor="White" Pressed="btnFilter_Pressed"/>
         </StackLayout>
         <StackLayout>
+            <Label x:Name="lblDataInfo" Text="You haven't searched for a food yet" IsVisible="True" HorizontalOptions="Center" FontSize="Medium" Margin="0,10,0,10"/>
             <ListView x:Name="FoodResults" ItemsSource="{Binding apiModel}" HasUnevenRows="True" SeparatorVisibility="None" ItemTapped="FoodResults_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -35,8 +36,7 @@
                                 <ActivityIndicator BindingContext="{x:Reference foodImage}" IsRunning="{Binding IsLoading}"/>
                                 <StackLayout Grid.Column="1" Orientation="Vertical">
                                     <Label Text="{Binding foodName}" VerticalOptions="End" FontAttributes="Bold"/>
-                                    <Label Text="{Binding totalCalories}" VerticalOptions="Start"/>
-                                </StackLayout>
+                                    <Label Text="{Binding calories, StringFormat=\{0:#.##\}}" VerticalOptions="Start"/>                                </StackLayout>
 
                             </Grid>
                         </ViewCell>

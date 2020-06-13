@@ -9,7 +9,9 @@
              x:Class="FRFoodRecipes.SavedFood">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="FoodResults" ItemsSource="{Binding tempModel}" HasUnevenRows="True" SeparatorVisibility="None" ItemTapped="FoodResults_ItemTapped">
+            <Label x:Name="lblDataInfo" Text="You haven't saved a food yet" IsVisible="True" HorizontalOptions="Center" FontSize="Medium" Margin="0,10,0,10"/>
+            <Label x:Name="lblPullRefresh" Text="Pull to refresh" HorizontalOptions="Center" FontSize="Small" Margin="0,5,0,0"/>
+            <ListView x:Name="FoodResults" HasUnevenRows="True" SeparatorVisibility="None" ItemTapped="FoodResults_ItemTapped" IsPullToRefreshEnabled="True" Refreshing="FoodResults_Refreshing">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
@@ -19,15 +21,15 @@
                                     <ColumnDefinition Width="*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <ff:CachedImage x:Name="foodImage" HeightRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="70" Source="{Binding Image}">
+                                <ff:CachedImage x:Name="foodImage" HeightRequest="70" HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Aspect="AspectFill" WidthRequest="70" Source="{Binding imageUri}">
                                     <ff:CachedImage.Transformations>
                                         <ffImageTransformation:CircleTransformation />
                                     </ff:CachedImage.Transformations>
                                 </ff:CachedImage>
-                                <ActivityIndicator BindingContext="{x:Reference foodImage}" IsRunning="{Binding IsLoading}"/>
+                                <!--<ActivityIndicator BindingContext="{x:Reference imageUri}" IsRunning="{Binding IsLoading}"/>-->
                                 <StackLayout Grid.Column="1" Orientation="Vertical">
-                                    <Label Text="{Binding Label}" VerticalOptions="End" FontAttributes="Bold"/>
-                                    <Label Text="{Binding Calories}" VerticalOptions="Start"/>
+                                    <Label x:Name="lblLabel" Text="{Binding foodName}" VerticalOptions="End" FontAttributes="Bold"/>
+                                    <Label x:Name="lblCalories" Text="{Binding calories, StringFormat=\{0:#.##\}}" VerticalOptions="Start"/>
                                 </StackLayout>
 
                             </Grid>

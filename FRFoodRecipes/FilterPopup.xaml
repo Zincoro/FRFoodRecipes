@@ -37,7 +37,7 @@
                     <Label Text="Balanced" Margin="0,5,0,0"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Grid.Row="1">
-                    <CheckBox x:Name="chkHighFiber" CheckedChanged="chkHighFiber_CheckedChanged"/>
+                    <CheckBox x:Name="chkHighFiber" CheckedChanged="chkHighFiber_CheckedChanged" />
                     <Label Text="High-Fiber" Margin="0,5,0,0"/>
                 </StackLayout>
 

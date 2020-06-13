@@ -39,6 +39,7 @@ namespace FRFoodRecipes
             foodDatabase = await RecipesAPI.GetRecipe(searchedRecipe);
             apiModel = apicontroller.GetRecipeResults(foodDatabase);
             FoodResults.ItemsSource = apiModel;
+            lblDataInfo.IsVisible = false;
         }
 
         private async void FoodResults_ItemTapped(object sender, ItemTappedEventArgs e)

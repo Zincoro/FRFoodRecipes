@@ -13,16 +13,16 @@ namespace FRFoodRecipes.API.Models
         public string Url { get; set; }
         public string ShareAs { get; set; }
         public long Yield { get; set; }
-        public string[] DietLabels { get; set; }
-        public string[] HealthLabels { get; set; }
-        public string[] Cautions { get; set; }
-        public string[] IngredientLines { get; set; }
-        public Ingredient[] Ingredients { get; set; }
+        public List<string> DietLabels { get; set; }
+        public List<string> HealthLabels { get; set; }
+        public List<string> Cautions { get; set; }
+        public List<string> IngredientLines { get; set; }
+        public List<Ingredient> Ingredients { get; set; }
         public double Calories { get; set; }
         public double TotalWeight { get; set; }
         public long TotalTime { get; set; }
         public TotalNutrients TotalNutrients { get; set; }
         public TotalDaily TotalDaily { get; set; }
-        public Digest[] Digest { get; set; }
+        public List<Digest> Digest { get; set; }
     }
 }

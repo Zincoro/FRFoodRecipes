@@ -32,6 +32,19 @@ namespace FRFoodRecipes.API
                 return null;
         }
 
+        public async Task<UserTable> UpdateUser(UserTable user)
+        {
+            var http = new HttpClient();
+            var response = await http.PostAsJsonAsync($"https://foodapi27036778.azurewebsites.net/user/update", user);
+            if (response.IsSuccessStatusCode)
+            {
+                var data = await response.Content.ReadAsAsync<UserTable>();
+                return data;
+            }
+            else
+                return null;
+        }
+
         public async Task<List<SavedFoodTable>> GetSavedFood(int uid)
         {
             var http = new HttpClient();
