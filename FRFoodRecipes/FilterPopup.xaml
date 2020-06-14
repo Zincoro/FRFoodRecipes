@@ -37,7 +37,7 @@
                     <Label Text="Balanced" Margin="0,5,0,0"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Grid.Row="1">
-                    <CheckBox x:Name="chkHighFiber" CheckedChanged="chkHighFiber_CheckedChanged" />
+                    <CheckBox x:Name="chkHighFiber" CheckedChanged="chkHighFiber_CheckedChanged" IsChecked="False" IsEnabled="False"/>
                     <Label Text="High-Fiber" Margin="0,5,0,0"/>
                 </StackLayout>
 
@@ -55,7 +55,7 @@
                     <Label Text="Low-Fat" Margin="0,5,0,0"/>
                 </StackLayout>
                 <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
-                    <CheckBox x:Name="chkLowSodium" CheckedChanged="chkLowSodium_CheckedChanged"/>
+                    <CheckBox x:Name="chkLowSodium" CheckedChanged="chkLowSodium_CheckedChanged" IsChecked="False" IsEnabled="False"/>
                     <Label Text="Low-Sodium" Margin="0,5,0,0"/>
                 </StackLayout>
             </Grid>
@@ -87,45 +87,45 @@
                         <Label Text="Alcohol-Free" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="3" >
-                        <CheckBox x:Name="chkDairy"/>
+                        <CheckBox x:Name="chkDairy" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Dairy" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="4">
-                        <CheckBox x:Name="chkEggs"/>
+                        <CheckBox x:Name="chkEggs" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Eggs" Margin="0,5,0,0"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="1">
-                        <CheckBox x:Name="chkPaleo"/>
+                        <CheckBox x:Name="chkPaleo" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Paleo" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="1">
-                        <CheckBox x:Name="chkLowSugar"/>
+                        <CheckBox x:Name="chkLowSugar" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Low-Sugar" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="1">
-                        <CheckBox x:Name="chkKeto"/>
+                        <CheckBox x:Name="chkKeto" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Keto" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="1">
-                        <CheckBox x:Name="chkWheat"/>
+                        <CheckBox x:Name="chkWheat" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Wheat" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="4" Grid.Column="1">
-                        <CheckBox x:Name="chkFish"/>
+                        <CheckBox x:Name="chkFish" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Fish" Margin="0,5,0,0"/>
                     </StackLayout>
 
                     <StackLayout Orientation="Horizontal" Grid.Row="0" Grid.Column="2">
-                        <CheckBox x:Name="chkGluten"/>
+                        <CheckBox x:Name="chkGluten" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Gluten" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="1" Grid.Column="2">
-                        <CheckBox x:Name="chkSoy"/>
+                        <CheckBox x:Name="chkSoy" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Soy" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="2" Grid.Column="2">
-                        <CheckBox x:Name="chkShellfish"/>
+                        <CheckBox x:Name="chkShellfish" IsChecked="False" IsEnabled="False"/>
                         <Label Text="Shellfish" Margin="0,5,0,0"/>
                     </StackLayout>
                     <StackLayout Orientation="Horizontal" Grid.Row="3" Grid.Column="2">

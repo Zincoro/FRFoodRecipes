@@ -23,23 +23,29 @@ namespace FRFoodRecipes
 
         private async void btnLogin_Clicked(object sender, EventArgs e)
         {
-            ApiProxy apiProxy = new ApiProxy();
-
-            var user = await apiProxy.GetUser(txtUsername.Text, txtPassword.Text);
-
-            if (user != null)
-            {
-                userInfo = user;
-
-                //await Navigation.PopModalAsync();
-                var page = Navigation.NavigationStack.LastOrDefault();
-                await Navigation.PushAsync(new MainPage());
-                Navigation.RemovePage(page);
-            }
+            if (String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtPassword.Text))
+                await DisplayAlert("Error", "All fields must be filled", "Try Again");
             else
             {
-                await DisplayAlert("Error", "Account not found", "Try Again");
+                ApiProxy apiProxy = new ApiProxy();
+
+                var user = await apiProxy.GetUser(txtUsername.Text, txtPassword.Text);
+
+                if (user != null)
+                {
+                    userInfo = user;
+
+                    //await Navigation.PopModalAsync();
+                    var page = Navigation.NavigationStack.LastOrDefault();
+                    await Navigation.PushAsync(new MainPage());
+                    Navigation.RemovePage(page);
+                }
+                else
+                {
+                    await DisplayAlert("Error", "Account not found", "Try Again");
+                }
             }
+                
 
         }
 

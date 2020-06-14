@@ -7,42 +7,47 @@
              x:Class="FRFoodRecipes.Signup">
 
     <ContentPage.Content>
-        <Grid RowSpacing="0" BackgroundColor="#DADDD8">
+        <StackLayout BackgroundColor="#f5f5f5" Orientation="Vertical">
 
-            <StackLayout>
-                <StackLayout Padding="75,20,75,0">
+            <StackLayout Padding="0,20,0,0">
+                <Image Source="FRLogo.png"/>
+            </StackLayout>
+
+            <StackLayout >
+                <StackLayout Padding="75,5,75,0">
                     <!-- Stack Layout for Username Box-->
                     <Entry x:Name="txtUsername" Placeholder="Username"/>
                 </StackLayout>
 
-                <StackLayout Padding="75,20,75,0">
+                <StackLayout Padding="75,5,75,0">
                     <!-- Stack Layout for FirstName Box-->
                     <Entry x:Name="txtFirstName" Placeholder="First Name"/>
                 </StackLayout>
 
-                <StackLayout Padding="75,20,75,0">
+                <StackLayout Padding="75,5,75,0">
                     <!-- Stack Layout for Lastname Box-->
                     <Entry x:Name="txtLastName" Placeholder="Last Name"/>
                 </StackLayout>
 
-                <StackLayout Padding="75,20,75,0">
+                <StackLayout Padding="75,5,75,0">
                     <!-- Stack Layout for Email Box-->
                     <Entry x:Name="txtEmail" Placeholder="Email"/>
                 </StackLayout>
 
-                <StackLayout Padding="75,20,75,0">
+                <StackLayout Padding="75,5,75,0">
                     <!-- Stack Layout for Password Box-->
                     <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"/>
                 </StackLayout>
 
-                <StackLayout Padding="75,20,75,0">
+                <StackLayout Padding="75,5,75,0">
                     <!-- Stack Layout for Confirm Password Box-->
                     <Entry x:Name="txtPasswordConfirm" Placeholder="Confirm Password" IsPassword="True"/>
                 </StackLayout>
 
-                <Button x:Name="btnSignup" Text="Sign up" TextColor="White" BackgroundColor="Green" Margin="75,40,75,0" CornerRadius="25" Pressed="btnSignup_Pressed"/>
+                <Button x:Name="btnSignup" Text="Sign up" TextColor="White" BackgroundColor="Green" Margin="75,20,75,0" CornerRadius="25" Pressed="btnSignup_Pressed"/>
+                <Button x:Name="btnCancelSignup" Text="Cancel" TextColor="White" BackgroundColor="Red" Margin="75,20,75,0" CornerRadius="25" Pressed="btnCancelSignup_Pressed"/>
 
             </StackLayout>
-        </Grid>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -135,4 +135,43 @@
       <Name>FRFoodRecipes</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emptyheartDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\emptyheartLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fastfood.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\fastfoodblk.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\FRLogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heartDark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\heartLight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\homedark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settingicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\settingsicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_fastfooddark.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\ic_action_settingsdark.png" />
+  </ItemGroup>
 </Project>

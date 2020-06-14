@@ -26,8 +26,8 @@ namespace FRFoodRecipes
 
             On<Android>().SetToolbarPlacement(ToolbarPlacement.Bottom);
             On<Android>().SetIsSwipePagingEnabled(false);
-            On<Android>().SetBarSelectedItemColor(Color.Black);
-            On<Android>().SetBarItemColor(Color.FromHex("#737373"));
+            On<Android>().SetBarSelectedItemColor(Color.FromHex("#028ee6"));
+            On<Android>().SetBarItemColor(Color.Black);
             this.CurrentPageChanged += TabbedPage_CurrentPageChanged;
 
             InitializeComponent();
@@ -37,9 +37,9 @@ namespace FRFoodRecipes
             Children.Add(new SettingsPage());
             Children[0].IconImageSource = "homedark.png";
             Children[0].Title = "Home";
-            Children[1].IconImageSource = "fastfoodblk.png";
+            Children[1].IconImageSource = "ic_action_fastfooddark.png";
             Children[1].Title = "Saved Food";
-            Children[2].IconImageSource = "settingicon.png";
+            Children[2].IconImageSource = "ic_action_settingsdark.png";
             Children[2].Title = "Settings";
             CurrentPage = Children[0]; //The page it loads first (Home Page)
         }

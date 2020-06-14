@@ -21,7 +21,13 @@ namespace FRFoodRecipes
 
         private async void btnSignup_Pressed(object sender, EventArgs e)
         {
-            if (txtPassword.Text == txtPasswordConfirm.Text)
+            if (String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtFirstName.Text) || String.IsNullOrEmpty(txtLastName.Text) || String.IsNullOrEmpty(txtPassword.Text) || String.IsNullOrEmpty(txtPasswordConfirm.Text) || String.IsNullOrEmpty(txtUsername.Text))
+                await DisplayAlert("Error", "All fields must be filled", "Try Again");
+            else if (txtPassword.Text != txtPasswordConfirm.Text)
+                await DisplayAlert("Error", "Passwords are not the same", "Try Again");
+            else if (txtPasswordConfirm.Text.Length < 10 && txtPassword.Text.Length < 10)
+                await DisplayAlert("Error", "Password must be 10 characters or longer", "Try Again");
+            else
             {
                 UserTable newuser = new UserTable();
                 newuser.Username = txtUsername.Text;
@@ -44,10 +50,11 @@ namespace FRFoodRecipes
                     await Navigation.PopModalAsync();
                 }
             }
-            else
-            {
-                await DisplayAlert("Error", "Passwords dont match", "Try Again");
-            }
+        }
+
+        private async void btnCancelSignup_Pressed(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }

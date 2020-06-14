@@ -98,53 +98,17 @@ namespace FRFoodRecipes
             {
                 chkPaleo.IsChecked = true;
             }
-            if (health.Contains("health=gluten-free&"))
-            {
-                chkGluten.IsChecked = true;
-            }
             if (health.Contains("health=vegetarian&"))
             {
                 chkVegetarian.IsChecked = true;
-            }
-            if (health.Contains("health=low-sugar&"))
-            {
-                chkLowSugar.IsChecked = true;
-            }
-            if (health.Contains("health=soy-free&"))
-            {
-                chkSoy.IsChecked = true;
             }
             if (health.Contains("health=alcohol-free&"))
             {
                 chkAlcoholFree.IsChecked = true;
             }
-            if (health.Contains("health=keto-friendly&"))
-            {
-                chkKeto.IsChecked = true;
-            }
-            if (health.Contains("health=shellfish-free&"))
-            {
-                chkShellfish.IsChecked = true;
-            }
-            if (health.Contains("health=dairy-free&"))
-            {
-                chkDairy.IsChecked = true;
-            }
-            if (health.Contains("health=wheat-free&"))
-            {
-                chkWheat.IsChecked = true;
-            }
             if (health.Contains("health=tree-nut-free&"))
             {
                 chkTreeNuts.IsChecked = true;
-            }
-            if (health.Contains("health=egg-free&"))
-            {
-                chkEggs.IsChecked = true;
-            }
-            if (health.Contains("health=fish-free&"))
-            {
-                chkFish.IsChecked = true;
             }
             if (health.Contains("health=peanut-free&"))
             {
@@ -209,10 +173,6 @@ namespace FRFoodRecipes
             {
                 dietStorage = "diet=balanced&";
             }
-            else if (chkHighFiber.IsChecked)
-            {
-                dietStorage = "diet=high-fiber&";
-            }
             else if (chkHighProtein.IsChecked)
             {
                 dietStorage = "diet=high-protein&";
@@ -224,10 +184,6 @@ namespace FRFoodRecipes
             else if (chkLowFat.IsChecked)
             {
                 dietStorage = "diet=low-fat&";
-            }
-            else if (chkLowSodium.IsChecked)
-            {
-                dietStorage = "diet=low-sodium&";
             }
             else
             {
@@ -241,57 +197,17 @@ namespace FRFoodRecipes
             {
                 healthStorage += "health=vegan&";
             }
-            if (chkPaleo.IsChecked)
-            {
-                healthStorage += "health=paleo&";
-            }
-            if (chkGluten.IsChecked)
-            {
-                healthStorage += "health=gluten-free&";
-            }
             if (chkVegetarian.IsChecked)
             {
                 healthStorage += "health=vegetarian&";
-            }
-            if (chkLowSugar.IsChecked)
-            {
-                healthStorage += "health=low-sugar&";
-            }
-            if (chkSoy.IsChecked)
-            {
-                healthStorage += "health=soy-free&";
             }
             if (chkAlcoholFree.IsChecked)
             {
                 healthStorage += "health=alcohol-free&";
             }
-            if (chkKeto.IsChecked)
-            {
-                healthStorage += "health=keto-friendly&";
-            }
-            if (chkShellfish.IsChecked)
-            {
-                healthStorage += "health=shellfish-free&";
-            }
-            if (chkDairy.IsChecked)
-            {
-                healthStorage += "health=dairy-free&";
-            }
-            if (chkWheat.IsChecked)
-            {
-                healthStorage += "health=wheat-free&";
-            }
             if (chkTreeNuts.IsChecked)
             {
                 healthStorage += "health=tree-nut-free&";
-            }
-            if (chkEggs.IsChecked)
-            {
-                healthStorage += "health=egg-free&";
-            }
-            if (chkFish.IsChecked)
-            {
-                healthStorage += "health=fish-free&";
             }
             if (chkPeanuts.IsChecked)
             {
@@ -317,11 +233,8 @@ namespace FRFoodRecipes
         {
             if (chkHighFiber.IsChecked)
             {
-                chkBalanced.IsChecked = false;
-                chkHighProtein.IsChecked = false;
-                chkLowCarb.IsChecked = false;
-                chkLowFat.IsChecked = false;
-                chkLowSodium.IsChecked = false;
+                chkHighFiber.IsChecked = false;
+                chkHighFiber.IsEnabled = false;
             }
         }
 
@@ -365,11 +278,8 @@ namespace FRFoodRecipes
         {
             if (chkLowSodium.IsChecked)
             {
-                chkBalanced.IsChecked = false;
-                chkHighFiber.IsChecked = false;
-                chkHighProtein.IsChecked = false;
-                chkLowCarb.IsChecked = false;
-                chkLowFat.IsChecked = false;
+                chkLowSodium.IsChecked = false;
+                chkLowSodium.IsEnabled = false;
             }
         }
     }
