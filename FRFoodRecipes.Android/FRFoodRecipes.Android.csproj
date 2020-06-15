@@ -138,5 +138,8 @@
   <ItemGroup>
     <AndroidResource Include="Resources\drawable\ic_action_settingsdark.png" />
   </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\FRLogoj.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
 </Project>

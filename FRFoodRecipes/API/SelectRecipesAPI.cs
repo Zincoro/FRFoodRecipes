@@ -11,7 +11,7 @@ namespace FRFoodRecipes.API
 {
 
     [DataContract]
-    public partial class SingleRootObject
+    public partial class SingleRootObject //Similar to the model in RecipesAPI, but this is for searching the api for a single food from "uri"
     {
         [DataMember]
         public string Uri { get; set; }

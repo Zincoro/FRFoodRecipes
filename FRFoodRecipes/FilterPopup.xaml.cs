@@ -16,7 +16,7 @@ namespace FRFoodRecipes
     public partial class FilterPopup : PopupPage
     {
 
-        private string fileNameFrom = "fromCaloriesFilter.txt";
+        private string fileNameFrom = "fromCaloriesFilter.txt"; //saving txtfilenames in strings for easy access
         private string fileNameTo = "toCaloriesFilter.txt";
         private string fileNameIngreds = "uptoIngredsFilter.txt";
         private string fileNameDiet = "dietFilter.txt";
@@ -29,28 +29,28 @@ namespace FRFoodRecipes
         {
             InitializeComponent();
 
-            fillTexts();
+            fillTexts(); //Call the fillTexts method when page loaded
         }
 
         public async void fillTexts()
         {
-            btnClearFilters.Text += " Clear Filters";
+            btnClearFilters.Text += " Clear Filters"; //Adds text to the button after its icon
 
             string fromCalories = "0";
             string toCalories = "800";
-            string uptoIngr = "20";
+            string uptoIngr = "20"; //Presetting some strings so when reset button is clicked, they will reset to this
 
-            txtCalorieFrom.Text = fromCalories;
+            txtCalorieFrom.Text = fromCalories; //whatevers in string put it in the textboxes in frontend
             txtCalorieTo.Text = toCalories;
             txtIngredsUpto.Text = uptoIngr;
 
-            var fromCal = await LocalStorage.ReadTextFileAsync(fileNameFrom);
+            var fromCal = await LocalStorage.ReadTextFileAsync(fileNameFrom); //read the filename if exists and put whatevers in it in the variable
             var toCal = await LocalStorage.ReadTextFileAsync(fileNameTo);
             var uptoIngreds = await LocalStorage.ReadTextFileAsync(fileNameIngreds);
             var diet = await LocalStorage.ReadTextFileAsync(fileNameDiet);
             var health = await LocalStorage.ReadTextFileAsync(fileNameHealth);
 
-            if (!String.IsNullOrEmpty(fromCal))
+            if (!String.IsNullOrEmpty(fromCal)) //if the var isnt empty, replace it with the text frontend
             {
                 txtCalorieFrom.Text = fromCal;
             }
@@ -64,7 +64,7 @@ namespace FRFoodRecipes
             }
 
             //------------------------------------Diet-------------------------------
-            if (diet.Contains("diet=balanced&"))
+            if (diet.Contains("diet=balanced&")) //If the diet string contains the word, then tick the checkbox (Rememering and saving what the user has ticked)
             {
                 chkBalanced.IsChecked = true;
             }
@@ -116,16 +116,16 @@ namespace FRFoodRecipes
             }
         }
 
-        private void btnClearFilters_Clicked(object sender, EventArgs e)
+        private void btnClearFilters_Clicked(object sender, EventArgs e) //Calls 2 methods, and resets txtboxes to preset values
         {
             ClearDiet();
             ClearAllergies();
             txtCalorieFrom.Text = "0";
             txtCalorieTo.Text = "800";
-            txtIngredsUpto.Text = "20";
+            txtIngredsUpto.Text = "20"; 
         }
 
-        private void ClearDiet()
+        private void ClearDiet() //Unticks all checkboxes
         {
             chkVegetarian.IsChecked = false;
             chkHighFiber.IsChecked = false;

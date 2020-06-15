@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FRFoodRecipes.Maintenance;
+using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -11,8 +12,10 @@ namespace FRFoodRecipes
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new LoginPage());
+            /////////MainPage = new NavigationPage(new LoginPage());
             //var navi = Application.Current.MainPage as NavigationPage;
+
+            MainPage = new NavigationPage(new SplashPage()); //The root page of the App
         }
 
         protected override void OnStart()

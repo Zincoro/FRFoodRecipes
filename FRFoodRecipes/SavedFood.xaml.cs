@@ -17,13 +17,7 @@ namespace FRFoodRecipes
     public partial class SavedFood : ContentPage
     {
         ApiProxy apiProxy = new ApiProxy();
-        //public static RootObject foodDatabase;
         public static List<SingleRootObject> foodDatabase1;
-
-        //private ObservableCollection<APIModel> apiModel = new ObservableCollection<APIModel>();
-
-        //private APIModel apiModel = new APIModel();
-        private ObservableCollection<List<SingleRootObject>> tempModel = new ObservableCollection<List<SingleRootObject>> ();
         public static SavedFoodTable savedFood;
         public static UriModel uriModel;
         public APIController apicontroller = new APIController();
@@ -33,53 +27,36 @@ namespace FRFoodRecipes
         {
             InitializeComponent();
 
-            getSavedFood();
+            getSavedFood(); //Calls the getSavedFood method when called 
         }
 
-        private async void FoodResults_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void FoodResults_ItemTapped(object sender, ItemTappedEventArgs e) //When tapped the savedfood icon, it gets it uri and then makes an api call for the uri 
         {
             var recDets = (SavedFoodTable)e.Item;
             var itemUri = recDets.Uri;
             var foodDatabase = await RecipesAPI.GetRecipeFromUri(itemUri);
 
-            await Navigation.PushAsync(new RecipeDetailSaved(foodDatabase));
+            await Navigation.PushAsync(new RecipeDetailSaved(foodDatabase)); //calls a new recipe details page with  a new model class specific for savedfood database
         }
 
-        private async void getSavedFood()
+        private async void getSavedFood() //empty the foodresults list, get all the food that matches the users id if its saved
         {
             FoodResults.ItemsSource = null;
             var getFood = await apiProxy.GetSavedFood(LoginPage.userInfo.UserId);
 
-            if (getFood.Count != 0)
+            if (getFood.Count != 0) //If the count is 0 the lbl that says "You havent searched for a food yet" is hidden
             {
                 lblDataInfo.IsVisible = false;
-                FoodResults.ItemsSource = getFood;
+                FoodResults.ItemsSource = getFood; //Then the saved data is added into the list
             }
             else
             {
-                lblDataInfo.IsVisible = true;
+                lblDataInfo.IsVisible = true; //otherwise keep the lbl visible
             }
-            //IsRefreshing = false;
-            ////if (getFood != null)
-            ////{
-            ////    List<RootObject> foods = new List<RootObject>();
-            ////    foreach (var item in getFood)
-            ////    {
-            ////        foods.Add(await RecipesAPI.GetRecipeFromUri(item.Uri));
-            ////    }
-            ////}
-            ////apiModel = apicontroller.GetRecipeResults(foodDatabase);
-            ////FoodResults.ItemsSource = apiModel;
-            //foodDatabase1 = await RecipesAPI.GetRecipeFromUri(getFood);
-            //tempModel = apicontroller.GetSingleRecipeByURI(foodDatabase1);
-            //foreach (var item in tempModel)
-            //{
-            //    FoodResults.ItemsSource = item;
-            //}
 
         }
 
-        private void FoodResults_Refreshing(object sender, EventArgs e)
+        private void FoodResults_Refreshing(object sender, EventArgs e) //pull to refresh, when pulled it recalls the method and then turns off the refresh icon
         {
             getSavedFood();
             FoodResults.IsRefreshing = false;

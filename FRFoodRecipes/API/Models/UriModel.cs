@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FRFoodRecipes.API.Models
 {
-    public class UriModel
+    public class UriModel //UriModel class for when getting the URI back from private database
     {
         public string Uri { get; set; }
         public string Label { get; set; }

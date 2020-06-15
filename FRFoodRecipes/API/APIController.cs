@@ -9,22 +9,21 @@ namespace FRFoodRecipes.API
 {
     public class APIController
     {
-        //public APIModel apiModel = new APIModel();
-        public ObservableCollection<APIModel> apiModel = new ObservableCollection<APIModel>();
+        public ObservableCollection<APIModel> apiModel = new ObservableCollection<APIModel>(); //Make a List of the APIModel
 
         public ObservableCollection<List<SingleRootObject>> tempmodel = new ObservableCollection< List < SingleRootObject >> ();
 
-        public ObservableCollection<APIModel> GetRecipeResults(RootObject foodDatabase)
+        public ObservableCollection<APIModel> GetRecipeResults(RootObject foodDatabase) //After the food has been searched, the results are put into the apiModel and then returned for it to be used
         {
             apiModel.Clear(); //Clears the APIModel everytime Controller is called
-            foreach (var item in foodDatabase.hits)
+            foreach (var item in foodDatabase.hits) //Each item in fooddatabase.hit put into the apimodel
             {
                 apiModel.Add(new APIModel { uri = item.recipe.uri, foodName = item.recipe.label, imageUri = item.recipe.image, source = item.recipe.source, sourceUrl = item.recipe.url, shareAs = item.recipe.shareAs, yield = item.recipe.yield, dietLabels = item.recipe.dietLabels, healthLabels = item.recipe.dietLabels, cautions = item.recipe.cautions, ingredientLines = item.recipe.ingredientLines, ingredients = item.recipe.ingredients, calories = item.recipe.calories, totalWeight = item.recipe.totalWeight, totalTime = item.recipe.totalTime, totalNutrients = item.recipe.totalNutrients, totalDaily = item.recipe.totalDaily, digest = item.recipe.digest });
             }
             return apiModel; //Gets Name and other data, then returns.
         }
 
-        public ObservableCollection<List<SingleRootObject>> GetSingleRecipeByURI(List<SingleRootObject> foodDatabase)
+        public ObservableCollection<List<SingleRootObject>> GetSingleRecipeByURI(List<SingleRootObject> foodDatabase) //For getting a selected result for a food that has been saved by the user
         {
             tempmodel.Clear(); //Clears the APIModel everytime Controller is called
 

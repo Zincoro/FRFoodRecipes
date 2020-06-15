@@ -5,7 +5,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="FRFoodRecipes.App">
-    <Application.Resources>
+    <Application.Resources> <!--Different Fonts and Icons added with names to be easily accessible-->
         <OnPlatform x:Key="MaterialFontFamilySOLID" x:TypeArguments="x:String">
             <On Platform="iOS" Value="Font Awesome 5 Pro" />
             <On Platform="Android" Value="fa-solid-900.ttf#Font Awesome 5 Pro" />

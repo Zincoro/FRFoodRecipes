@@ -15,17 +15,17 @@ namespace FRFoodRecipes.API
 {
     public class RecipesAPI
     {
-        public async static Task<RootObject> GetRecipe(string foodName)
+        public async static Task<RootObject> GetRecipe(string foodName)//Receiving a string of a foodname that the user has searched
         {
-            string fileNameFrom = "fromCaloriesFilter.txt";
+            string fileNameFrom = "fromCaloriesFilter.txt"; //For Local Storage, putting txt file names in a string to be easily accessible
             string fileNameTo = "toCaloriesFilter.txt";
             string fileNameIngreds = "uptoIngredsFilter.txt";
             string fileNameDiet = "dietFilter.txt";
-            string fileNameHealth = "healthFilter.txt";
+            string fileNameHealth = "healthFilter.txt"; 
 
             string appID = "fdb4202d"; //App ID
             string appKey = "45e0fc9234e74461ff88774111579eae"; //App Key
-            string fromCalories = await LocalStorage.ReadTextFileAsync(fileNameFrom);
+            string fromCalories = await LocalStorage.ReadTextFileAsync(fileNameFrom); //Whatever is in the fileNameFrom(fromCaloriesFilter.txt) put it in a string "fromCalories"
             string toCalories = await LocalStorage.ReadTextFileAsync(fileNameTo);
             string maxIngreds = await LocalStorage.ReadTextFileAsync(fileNameIngreds);
             string diet = await LocalStorage.ReadTextFileAsync(fileNameDiet);
@@ -39,10 +39,10 @@ namespace FRFoodRecipes.API
             var ms = new MemoryStream(Encoding.UTF8.GetBytes(result));
             var data = (RootObject)serializer.ReadObject(ms);
 
-            return data;
+            return data; //using the string the user has searched and making an api call based on it
         }
 
-        public async static Task<List<SingleRootObject>> GetRecipeFromUri(string Uri)
+        public async static Task<List<SingleRootObject>> GetRecipeFromUri(string Uri) //Receving a specific Uri for a specific food to get more of its results
         {
             string appID = "fdb4202d"; //App ID
             string appKey = "45e0fc9234e74461ff88774111579eae"; //App Key
@@ -54,11 +54,11 @@ namespace FRFoodRecipes.API
             var result = await response.Content.ReadAsStringAsync();
             var objData = JsonConvert.DeserializeObject<List<SingleRootObject>>(result);
 
-            return objData;
+            return objData; //using the specific uri to get more info of the specific food
         }
 
         [DataContract]
-        public class Recipe
+        public class Recipe //All model converted from json for public api
         {
             [DataMember]
             public string uri { get; set; }

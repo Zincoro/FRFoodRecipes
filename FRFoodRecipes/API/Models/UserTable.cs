@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FRFoodRecipes.API.Models
 {
-    public class UserTable
+    public class UserTable //User Model Class for Signing in/Signing up 
     {
         public int UserId { get; set; }
         public string Username { get; set; }

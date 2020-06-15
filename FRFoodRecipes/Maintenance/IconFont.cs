@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FRFoodRecipes.Maintenance
 {
-    static class IconFont
+    static class IconFont //Added a font (Icons) and set its content to a string for easily accessible
     {
         public const string GlassMartini = "\uf000";
         public const string Music = "\uf001";

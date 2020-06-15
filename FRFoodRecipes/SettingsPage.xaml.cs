@@ -40,7 +40,7 @@ namespace FRFoodRecipes
                 return;
         }
 
-        private async void btnSubmit_Clicked(object sender, EventArgs e) //
+        private async void btnSubmit_Clicked(object sender, EventArgs e) //Validation if fields are empty etc, 
         {
             if (String.IsNullOrEmpty(txtFirstName.Text) || String.IsNullOrEmpty(txtLastName.Text) || String.IsNullOrEmpty(txtUsername.Text) || String.IsNullOrEmpty(txtEmail.Text) || String.IsNullOrEmpty(txtPassword.Text) || String.IsNullOrEmpty(txtConfirmPassword.Text))
                 await DisplayAlert("Error", "All fields must be filled", "Try Again");
@@ -55,7 +55,7 @@ namespace FRFoodRecipes
             else
             {
                 ApiProxy apiProxy = new ApiProxy();
-                UserTable updateUser = new UserTable();
+                UserTable updateUser = new UserTable(); //a new instance of the modelclass is created to updateuser 
                 updateUser.UserId = LoginPage.userInfo.UserId;
                 updateUser.Fname = txtFirstName.Text;
                 updateUser.Lname = txtLastName.Text;

@@ -17,23 +17,22 @@ namespace FRFoodRecipes
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class HomePage : ContentPage
     {
-        public static RootObject foodDatabase;
-        private ObservableCollection<APIModel> apiModel = new ObservableCollection<APIModel>();
-        //private APIModel SelectedItem;
+        public static RootObject foodDatabase; //static variable of the rootobject
+        private ObservableCollection<APIModel> apiModel = new ObservableCollection<APIModel>(); //Private model of APIModel in list
 
-        public APIController apicontroller = new APIController();
+        public APIController apicontroller = new APIController(); 
 
         public HomePage()
         {
             InitializeComponent();
         }
 
-        private void btnFilter_Pressed(object sender, EventArgs e)
+        private void btnFilter_Pressed(object sender, EventArgs e) //When filter button pressed, call the filter page
         {
             PopupNavigation.Instance.PushAsync(new FilterPopup());
         }
 
-        private async void searchRecipe_SearchButtonPressed(object sender, EventArgs e)
+        private async void searchRecipe_SearchButtonPressed(object sender, EventArgs e) //When searched, send the searched string by the user into the api for results and display it in the foodresults list
         {
             var searchedRecipe = searchRecipe.Text;
             foodDatabase = await RecipesAPI.GetRecipe(searchedRecipe);
@@ -42,10 +41,9 @@ namespace FRFoodRecipes
             lblDataInfo.IsVisible = false;
         }
 
-        private async void FoodResults_ItemTapped(object sender, ItemTappedEventArgs e)
+        private async void FoodResults_ItemTapped(object sender, ItemTappedEventArgs e) //Each tapped item, gets its items as the APIModel and sends them to the recipe detail page to be displayed
         {
             var recDets = e.Item as APIModel;
-            //await Navigation.PushAsync(new RecipeDetail(recDets.uri, recDets.foodName, recDets.imageUri, recDets.source, recDets.sourceUrl, recDets.shareAs, recDets.yield, recDets.dietLabels, recDets.healthLabels, recDets.cautions, recDets.ingredientLines, recDets.ingredients, recDets.calories, recDets.totalWeight, recDets.totalTime, recDets.totalNutrients, recDets.totalDaily, recDets.digest));
             await Navigation.PushAsync(new RecipeDetail(recDets));
         }
     }

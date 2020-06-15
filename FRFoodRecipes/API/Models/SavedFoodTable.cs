@@ -4,7 +4,7 @@ using System.Text;
 
 namespace FRFoodRecipes.API.Models
 {
-    public class SavedFoodTable
+    public class SavedFoodTable //Model for saved food, from public api to private database
     {
         public int SavedFoodId { get; set; }
         public string Uri { get; set; }

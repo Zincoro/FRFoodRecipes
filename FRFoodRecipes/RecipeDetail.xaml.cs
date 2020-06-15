@@ -15,28 +15,27 @@ namespace FRFoodRecipes
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class RecipeDetail : TabbedPage
     {
-        ApiProxy apiProxy = new ApiProxy();
+        ApiProxy apiProxy = new ApiProxy(); //Model classes to be used
         SavedFoodTable saveFood = new SavedFoodTable();
         APIModel newPublicFood = new APIModel();
         private int foodID;
 
-        //public RecipeDetail(string apiuri, string fName, string imgUri, string srce, string srceUrl, string share, int yields, List<string> dietLbls, List<string> healthLbls, List<string> caution, List<string> ingredLines, List<Ingredient> ingrdients, double cals, double totWeight, int totTime, TotalNutrients publicFood.totalNutrients, TotalDaily totDaily, List<Digest> digests)
-        public RecipeDetail(APIModel publicFood)
+        public RecipeDetail(APIModel publicFood) //Recieves publicFood filled in APIModel
         {
             InitializeComponent();
 
             newPublicFood = publicFood; //Made this newPublicFood can be used outside this class to refresh the page (To refresh the Save/Delete button)
 
             saveFood.Uri = publicFood.uri;//apiuri;
-            saveFood.calories = publicFood.calories;
+            saveFood.calories = publicFood.calories; //putting data into saveFood model class of SavedFoodTable for when saving the food
             saveFood.foodName = publicFood.foodName;
             saveFood.imageUri = publicFood.imageUri;
             saveFood.Uid = LoginPage.userInfo.UserId;
 
-            getFood();
+            getFood(); //Calls the getFood method
 
             foodName.Text = publicFood.foodName;//fName;
-            foodImage.Source = new UriImageSource()
+            foodImage.Source = new UriImageSource() //From here on is just displaying the data from the API, image, calories etc
             {
                 Uri = new Uri(publicFood.imageUri)
             };
@@ -56,7 +55,7 @@ namespace FRFoodRecipes
 
             lstIngredLines.ItemsSource = publicFood.ingredients;
 
-            try
+            try //Try because just incase if a food is missing a specific nutrient it wont crash
             {
                 lblFAT.Text = publicFood.totalNutrients.FAT.label + " " + publicFood.totalNutrients.FAT.quantity.ToString("F") + publicFood.totalNutrients.FAT.unit;
                 lblFASAT.Text = publicFood.totalNutrients.FASAT.label + " " + publicFood.totalNutrients.FASAT.quantity.ToString("F") + publicFood.totalNutrients.FASAT.unit;
@@ -97,18 +96,18 @@ namespace FRFoodRecipes
 
 
 
-            foodSource.Text = "Recipe by " + publicFood.source;
+            foodSource.Text = "Recipe by " + publicFood.source; //Giving credit to the original food recipe source
         }
 
         private async void getFood()
         {
-            ToolbarItem removeFood = new ToolbarItem
+            ToolbarItem removeFood = new ToolbarItem //Adds 2 toolbaritem (button) with heart icon (Add/Remove)
             {
                 IconImageSource = ImageSource.FromFile("heartDark.png"),
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };
-            removeFood.Clicked += RemoveFood_Clicked;
+            removeFood.Clicked += RemoveFood_Clicked; //When removeFood is clicked, the method RemoveFood is called
 
             ToolbarItem addFood = new ToolbarItem
             {
@@ -116,10 +115,10 @@ namespace FRFoodRecipes
                 Order = ToolbarItemOrder.Primary,
                 Priority = 0
             };
-            addFood.Clicked += AddFood_Clicked;
+            addFood.Clicked += AddFood_Clicked; //When AddFood is clicked, the method addfood is called
 
-            var getFood = await apiProxy.GetSavedFood(saveFood.Uid);
-            var allFood = getFood.Where(e => e.Uri == saveFood.Uri).ToList();
+            var getFood = await apiProxy.GetSavedFood(saveFood.Uid); //Get food that is saved privately and matches the users id
+            var allFood = getFood.Where(e => e.Uri == saveFood.Uri).ToList(); //only get the food that matches the users ID
 
             if (allFood.Count() > 0) //check if this food id exists in database, if it exists show button to remove it
             {
@@ -134,7 +133,7 @@ namespace FRFoodRecipes
 
         private async void AddFood_Clicked(object sender, EventArgs e)
         {
-            var savedfoood = await apiProxy.PostSavedFood(saveFood);
+            var savedfoood = await apiProxy.PostSavedFood(saveFood); //sends the SaveModelClass model into the api to be saved, if not found show error, if found then refresh the page
             if (savedfoood == null)
             {
                 await DisplayAlert("Error", "Food cannot be saved", "Try Again");

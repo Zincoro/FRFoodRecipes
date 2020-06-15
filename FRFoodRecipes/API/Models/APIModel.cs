@@ -5,7 +5,7 @@ using static FRFoodRecipes.API.RecipesAPI;
 
 namespace FRFoodRecipes.API.Models
 {
-    public class APIModel
+    public class APIModel //Model class with all the public API properties
     {
         public string uri { get; set; }
         public string foodName { get; set; }
