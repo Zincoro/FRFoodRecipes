@@ -1,5 +1,6 @@
 ﻿using FRFoodRecipes.API;
 using FRFoodRecipes.API.Models;
+using FRFoodRecipes.Maintenance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,7 +35,12 @@ namespace FRFoodRecipes
                 if (user != null) //If it matches and the user exists, add all of the users data into the model class of UserInfo to be used throughout the app, sending the user to home page
                 {
                     userInfo = user;
-
+                    if (chkRememberMe.IsChecked)
+                    {
+                        await LocalStorage.WriteTextFileAsync("Remember.txt", "true");
+                        await LocalStorage.WriteTextFileAsync("Username.txt", user.Username);
+                        await LocalStorage.WriteTextFileAsync("Pwrd.txt", user.Pword);
+                    }
                     //await Navigation.PopModalAsync();
                     var page = Navigation.NavigationStack.LastOrDefault();
                     await Navigation.PushAsync(new MainPage());

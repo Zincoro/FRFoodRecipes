@@ -45,8 +45,12 @@
                     <Entry x:Name="txtNewPassword" Placeholder="New Password (Empty If Not Changing)" IsPassword="True"/>
                 </StackLayout>
             </Frame>
-            <Button x:Name="btnSubmit" BackgroundColor="Green" Text="SUBMIT" TextColor="White" Margin="10" CornerRadius="25" Clicked="btnSubmit_Clicked"/>
-            <Button x:Name="btnLogout" BackgroundColor="DarkRed" Text="LOGOUT" TextColor="White" Margin="10" CornerRadius="25" Clicked="btnLogout_Clicked"/>
+            <StackLayout Orientation="Horizontal" HorizontalOptions="End">
+                <Label x:Name="lblAutoLogin" Text="Keep me logged in?"/>
+                <Switch x:Name="swtRememberMe" Toggled="swtRememberMe_Toggled" VerticalOptions="Center" HorizontalOptions="End"/>
+            </StackLayout>
+            <Button x:Name="btnSubmit" BackgroundColor="Green" Text="SUBMIT" TextColor="White" Margin="10,5,10,5" CornerRadius="25" Clicked="btnSubmit_Clicked"/>
+            <Button x:Name="btnLogout" BackgroundColor="DarkRed" Text="LOGOUT" TextColor="White" Margin="10,5,10,5" CornerRadius="25" Clicked="btnLogout_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

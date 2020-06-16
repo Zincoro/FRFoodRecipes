@@ -29,7 +29,11 @@
                     <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"/>
                 </StackLayout>
 
-                <Button x:Name="btnLogin" Text="Login" TextColor="White" BackgroundColor="Green" Margin="75,40,75,0" CornerRadius="25" Clicked="btnLogin_Clicked"/>
+                <StackLayout Orientation="Horizontal" Margin="75,15,75,0" HorizontalOptions="Center">
+                    <Label x:Name="lblAutoLogin" Text="Keep me logged in?" Margin="0,5,0,0"/>
+                    <CheckBox x:Name="chkRememberMe"/>
+                </StackLayout>
+                <Button x:Name="btnLogin" Text="Login" TextColor="White" BackgroundColor="Green" Margin="75,5,75,0" CornerRadius="25" Clicked="btnLogin_Clicked"/>
 
                 <Label Text="Dont have an account?" Margin="140,20,75,0"/>
 

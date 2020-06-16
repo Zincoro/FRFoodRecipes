@@ -1,5 +1,6 @@
 ﻿using FRFoodRecipes.API;
 using FRFoodRecipes.API.Models;
+using FRFoodRecipes.Maintenance;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,6 +23,22 @@ namespace FRFoodRecipes
             txtLastName.Text = LoginPage.userInfo.Lname;
             txtUsername.Text = LoginPage.userInfo.Username;
             txtEmail.Text = LoginPage.userInfo.Email;
+            swtRememberMe.IsToggled = SplashPage.isRemember;
+
+            checkLogin();
+        }
+
+        private async void checkLogin()
+        {
+            var chkLogin = await LocalStorage.ReadTextFileAsync("Remember.txt");
+            if (chkLogin == "true")
+            {
+                swtRememberMe.IsToggled = true;
+            }
+            else
+            {
+                swtRememberMe.IsToggled = false;
+            }
         }
 
         private async void btnLogout_Clicked(object sender, EventArgs e) // Asks user if they want to logout, if yes takes them back to the LoginPage
@@ -29,11 +46,10 @@ namespace FRFoodRecipes
             bool answer = await DisplayAlert("Logout?", "Are you sure you want to logout?", "Yes", "No");
             if (answer)
             {
-                //var existingPages = Navigation.NavigationStack.ToList();
-                //foreach (var page in existingPages)
-                //{
-                //    Navigation.RemovePage(page);
-                //}
+                LoginPage.userInfo = new UserTable();
+                await LocalStorage.WriteTextFileAsync("Remember.txt", "false");
+                await LocalStorage.WriteTextFileAsync("Username.txt", "");
+                await LocalStorage.WriteTextFileAsync("Pwrd.txt", "");
                 App.Current.MainPage = new NavigationPage(new LoginPage());
             }
             else
@@ -84,6 +100,22 @@ namespace FRFoodRecipes
                     else
                         await DisplayAlert("Success", "Account Updated", "Ok");
                 }
+            }
+        }
+
+        private async void swtRememberMe_Toggled(object sender, ToggledEventArgs e)
+        {
+            if (swtRememberMe.IsToggled)
+            {
+                await LocalStorage.WriteTextFileAsync("Remember.txt", "true");
+                await LocalStorage.WriteTextFileAsync("Username.txt", LoginPage.userInfo.Username);
+                await LocalStorage.WriteTextFileAsync("Pwrd.txt", LoginPage.userInfo.Pword);
+            }
+            else
+            {
+                await LocalStorage.WriteTextFileAsync("Remember.txt", "");
+                await LocalStorage.WriteTextFileAsync("Username.txt", "");
+                await LocalStorage.WriteTextFileAsync("Pwrd.txt", "");
             }
         }
     }
