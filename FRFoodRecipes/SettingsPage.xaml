@@ -7,34 +7,9 @@
              x:Class="FRFoodRecipes.SettingsPage"
              Title="Settings">
     <ContentPage.Content>
-        <!--<ScrollView>
-            <StackLayout BackgroundColor="#DADDD8" Spacing="0">
-                <Button x:Name="btnShowStackNickname" BackgroundColor="White" Text="Change Nickname" TextColor="Black" Margin="0,10,0,0" />
-                <StackLayout BackgroundColor="White" Margin="0,0,0,0" x:Name="StackNicknameLayout" IsVisible="True" Orientation="Vertical">
-                    <Entry x:Name="txtNickname" Placeholder="Nickname"/>
-                    <Entry x:Name="txtPassword" Placeholder="Password" IsPassword="True"/>
-                    <Entry x:Name="txtConfirmPassword" Placeholder="Confirm Password" IsPassword="True"/>
-                    <StackLayout>
-                        <Button x:Name="btnSaveNickname" Text="SAVE" TextColor="White" BackgroundColor="Green" />
-                    </StackLayout>
-                </StackLayout>
-                
-                <Button x:Name="btnShowStackPassword" BackgroundColor="White" Text="Change Password" TextColor="Black" Margin="0,10,0,0" />
-                <StackLayout BackgroundColor="White" Margin="0,0,0,0" x:Name="StackPasswordLayout" IsVisible="False" Orientation="Vertical">
-                    <Entry x:Name="txtOldPassword" Placeholder="Old Password" IsPassword="True"/>
-                    <Entry x:Name="txtNewPassword" Placeholder="New Password" IsPassword="True"/>
-                    <Entry x:Name="txtConfirmNewPassword" Placeholder="Confirm New Password" IsPassword="True"/>
-                    <StackLayout>
-                        <Button x:Name="btnSavePassword" Text="SAVE" TextColor="White" BackgroundColor="Green" />
-                    </StackLayout>
-                </StackLayout>
 
-                <Button x:Name="btnLogout" BackgroundColor="DarkRed" Text="LOGOUT" TextColor="White" Margin="0,10,0,10" Clicked="btnLogout_Clicked"/>
-            </StackLayout>
-        </ScrollView>-->
         <StackLayout BackgroundColor="#f5f5f5">
-            <Label x:Name="lblSettingsTItle" Text="Change your Personal Details" FontSize="Large" FontAttributes="Bold" HorizontalTextAlignment="Center" Margin="0,10,0,10"/>
-            <Frame Margin="15,0,15,15" CornerRadius="25" BackgroundColor="White">
+            <Frame Margin="15,2,15,2" CornerRadius="25" BackgroundColor="White">
                 <StackLayout>
                     <Entry x:Name="txtFirstName" Placeholder="First Name"/>
                     <Entry x:Name="txtLastName" Placeholder="Last Name"/>
@@ -49,8 +24,8 @@
                 <Label x:Name="lblAutoLogin" Text="Keep me logged in?"/>
                 <Switch x:Name="swtRememberMe" Toggled="swtRememberMe_Toggled" VerticalOptions="Center" HorizontalOptions="End"/>
             </StackLayout>
-            <Button x:Name="btnSubmit" BackgroundColor="Green" Text="SUBMIT" TextColor="White" Margin="10,5,10,5" CornerRadius="25" Clicked="btnSubmit_Clicked"/>
-            <Button x:Name="btnLogout" BackgroundColor="DarkRed" Text="LOGOUT" TextColor="White" Margin="10,5,10,5" CornerRadius="25" Clicked="btnLogout_Clicked"/>
+            <Button x:Name="btnSubmit" BackgroundColor="Green" Text="SUBMIT" TextColor="White" Margin="10,1,10,5" CornerRadius="25" Clicked="btnSubmit_Clicked"/>
+            <Button x:Name="btnLogout" BackgroundColor="DarkRed" Text="LOGOUT" TextColor="White" Margin="10,1,10,5" CornerRadius="25" Clicked="btnLogout_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

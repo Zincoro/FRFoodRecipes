@@ -10,11 +10,11 @@
     <ContentPage.Content>
         <Grid RowSpacing="0" BackgroundColor="#f5f5f5">
             <Grid.RowDefinitions>
-                <RowDefinition Height="4.5*"/>
-                <RowDefinition Height="5.5*"/>
+                <RowDefinition Height="4*"/>
+                <RowDefinition Height="6*"/>
             </Grid.RowDefinitions>
 
-            <StackLayout Padding="0,95,0,0">
+            <StackLayout Padding="0,65,0,0">
                 <Image Source="FRLogo.png"/>
             </StackLayout>
 
@@ -35,7 +35,7 @@
                 </StackLayout>
                 <Button x:Name="btnLogin" Text="Login" TextColor="White" BackgroundColor="Green" Margin="75,5,75,0" CornerRadius="25" Clicked="btnLogin_Clicked"/>
 
-                <Label Text="Dont have an account?" Margin="140,20,75,0"/>
+                <Label Text="Dont have an account?" Margin="115,20,75,0"/>
 
                 <Button x:Name="btnSignup" Text="Sign up" TextColor="White" BackgroundColor="#028ee6" Margin="75,0,75,0" CornerRadius="25" Clicked="btnSignup_Clicked"/>
 

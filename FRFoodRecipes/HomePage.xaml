@@ -13,7 +13,7 @@
 
     <StackLayout Orientation="Vertical" BackgroundColor="White">
         <StackLayout Orientation="Horizontal" BackgroundColor="White" Margin="10">
-            <SearchBar x:Name="searchRecipe" Placeholder="Search food..." PlaceholderColor="Gray" SearchButtonPressed="searchRecipe_SearchButtonPressed"/>
+            <SearchBar x:Name="searchRecipe" Placeholder="Search food..." PlaceholderColor="Gray" SearchButtonPressed="searchRecipe_SearchButtonPressed" WidthRequest="260"/>
             <Button x:Name="btnFilter" FontFamily="{StaticResource MaterialFontFamilyREGULAR}" Text="{x:Static local:IconFont.Filter}" FontSize="22" BackgroundColor="White" Pressed="btnFilter_Pressed"/>
         </StackLayout>
         <StackLayout>
